@@ -3,12 +3,30 @@
 # DevOps Foundations Training
 
 * [Description](#description)
-* [Objectives](#objectives)
+* [DevOps Foundations: Development and operations](#devops-foundations-development-and-operations)
+* [DevOps Foundations: Continuous Delivery/Continuous Integration](#devops-foundations-continuous-deliverycontinuous-integration)
 * [Local setup](#local-setup)
 * [License](#license)
 
 ## Description
 Follow a series of courses to train DevOps skills.
+
+## DevOps Foundations: Development and Operations Fundamentals
+https://www.linkedin.com/learning/devops-foundations/development-and-operations-2
+
+This course covers the DevOps fundamentals.
+
+The code for this course lives on the [fundamentals](./fundamentals) folder.
+
+### Objectives
+What is DevOps?
+Understanding DevOps core values and principles
+Choosing DevOps tools
+Creating a positive DevOps culture
+Understanding agile and lean
+Building a continuous delivery pipeline
+Building reliable systems
+Looking into the future of DevOps
 
 ## DevOps Foundations: Continuous Delivery/Continuous Integration
 https://www.linkedin.com/learning/devops-foundations-continuous-delivery-continuous-integration
@@ -29,10 +47,7 @@ The code for this course lives on the [ci_cd](./ci_cd) folder.
 * CI/CD best practices
 
 ## Local setup
-Follow the instructions to get the project up and running for local development and testing purposes.
-- Install python 3: https://www.python.org/downloads/. 
-- Configure the IDE Interpreter to use Python 3 and setup the run configuration: https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html?keymap=secondary_macos.
-- Ideally create a dedicated virtual environment for the project and use it as the project interpreter in the IDE.
+Follow the instructions inside each course folder.
 
 ## License
 This project is licensed under the terms of the MIT License.
