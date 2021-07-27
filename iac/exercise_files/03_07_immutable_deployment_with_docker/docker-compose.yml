@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+
+  ubuntu-nginx:
+    build: ./ubuntu-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - elasticsearch
+      - postgres
+      - consul
+
+  elasticsearch:
+    build: ./elasticsearch
+    command: elasticsearch -Des.node.name=ernest -Des.cluster.name=ernest -Des.index.number_of_shards=1 -Des.index.number_of_replicas=0 -Des.index.refresh_interval='1s' -Des.index.merge.scheduler.max_thread_count=1 -Des.threadpool.bulk.queue_size='-1' -Des.bootstrap.mlockall='true' -Des.node.master='true' -Des.discovery.zen.ping.multicast.enabled -Des.script.inline='on' -Des.script.indexed='on' -Des.http.cors.enabled='false' -Des.discovery.zen.minimum_master_nodes=1 -Des.discovery.zen.ping.unicast.hosts=ubuntu-nginx
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    depends_on:
+      - consul
+
+  postgres:
+    build: ./postgres
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data:rw
+    depends_on:
+      - consul
+
+  consul:
+    image: consul:latest
+    ports: 
+      - "8500"
+

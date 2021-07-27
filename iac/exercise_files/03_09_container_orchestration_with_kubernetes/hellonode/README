@@ -1,0 +1,12 @@
+
+eval $(minikube docker-env)
+
+https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/
+Setup steps ^
+
+docker build -t hello-node:v1 .
+kubectl run hello-node --image=hello-node:v1 --port=8080
+
+
+docker build -t hello-node:v2 .
+

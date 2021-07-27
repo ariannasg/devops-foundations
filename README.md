@@ -5,6 +5,7 @@
 * [Description](#description)
 * [DevOps Foundations: Development and operations](#devops-foundations-development-and-operations-fundamentals)
 * [DevOps Foundations: Continuous Delivery/Continuous Integration](#devops-foundations-continuous-deliverycontinuous-integration)
+* [DevOps Foundations: Infrastructure as Code](#devops-foundations-infrastructure-as-code)
 * [DevOps Foundations: DevSecOps](#devops-foundations-devsecops)
 * [Local setup](#local-setup)
 * [License](#license)
@@ -46,6 +47,23 @@ The resources for this course are on the [ci_cd](./ci_cd) folder.
 * UI testing in action with Robot
 * Security testing in action with gauntlt
 * CI/CD best practices
+
+## DevOps Foundations: Infrastructure as Code
+https://www.linkedin.com/learning/devops-foundations-infrastructure-as-code
+
+This course covers the knowledge to start implementing an infrastructure as code strategy.
+
+The resources for this course are on the [iac](./iac) folder.
+
+### Objectives
+* Testing your infrastructure
+* Going from infrastructure code to artifacts
+* Unit testing your infrastructure code
+* Creating systems from your artifacts
+* Instantiating your infrastructure from a defined model
+* Provisioning with CloudFormation
+* Immutable deployment with Docker
+* Container orchestration with Kubernetes
 
 ## DevOps Foundations: DevSecOps
 

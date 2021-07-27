@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: This is a simple demonstration CloudFormation file.
+
+# These parameters are set in an external file
+Parameters:
+  InstanceType:
+     Description: "Instance type to use"
+     Type: "String"
+     Default: t2.micro
+     AllowedValues:
+       - t2.micro
+       - m1.small
+       - m1.large
+     Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
+  KeyName:
+      Description: "Name of an existing ssh keypair to use to access the instance"
+      Type: "String"
+
+# You can create lookups
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: "ami-e13739f6"
+    us-west-2:
+      AMI: "ami-b7a114d7"
+
+# A single EC2 instance
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType:
+        Ref: "InstanceType"
+      KeyName:
+        Ref: "KeyName"
+      SecurityGroups:
+        - Ref: "InstanceSecurityGroup"
+      ImageId:
+        !FindInMap [ RegionMap, !Ref "AWS::Region", AMI ]
+      # User-data will execute commands on boot using cloud-init
+      UserData:
+        Fn::Base64:
+          Fn::Join:
+            - ""
+            -
+              - "#!/bin/bash -ex"
+              - "\n"
+              - "apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62"
+              - "\n"
+              - "echo \"deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx\" >> /etc/apt/sources.list"
+              - "\n"
+              - "echo \"deb-src http://nginx.org/packages/mainline/ubuntu/ xenial nginx\" >> /etc/apt/sources.list "
+              - "\n"
+              - "apt-get update"
+              - "\n"
+              - "apt-get install -y nginx"
+              - "\n"
+              - "service nginx start"
+              - "\n"
+
+  # Create a security group for this instance that allows SSH and port 80
+  InstanceSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Open up SSH and HTTP to everyone on the Internet"
+      SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          FromPort: "22"
+          ToPort: "22"
+          CidrIp: "0.0.0.0/0"
+        - IpProtocol: "tcp"
+          FromPort: "80"
+          ToPort: "80"
+          CidrIp: "0.0.0.0/0"
+
+Outputs:
+  PublicIP:
+    Description: "The instance's public IP address"
+    Value:
+      !GetAtt Ec2Instance.PublicIp
