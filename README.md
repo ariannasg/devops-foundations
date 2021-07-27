@@ -3,8 +3,9 @@
 # DevOps Foundations Training
 
 * [Description](#description)
-* [DevOps Foundations: Development and operations](#devops-foundations-development-and-operations)
+* [DevOps Foundations: Development and operations](#devops-foundations-development-and-operations-fundamentals)
 * [DevOps Foundations: Continuous Delivery/Continuous Integration](#devops-foundations-continuous-deliverycontinuous-integration)
+* [DevOps Foundations: DevSecOps](#devops-foundations-devsecops)
 * [Local setup](#local-setup)
 * [License](#license)
 
