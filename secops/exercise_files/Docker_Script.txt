@@ -1,0 +1,10 @@
+docker run -v "${PWD}":/src/ --rm owasp/glue –t OWASPDependencyCheck -d /src
+
+Example for Jira:
+
+docker run -v "${PWD}":/src/ --rm owasp/glue -t OWASPDependencyCheck -d /src -f jira –jira-api-url https:/jira.example.com –jira-username “my_jira_user” –jira-password “XXXX” –jira-project MYPROJ
+
+For your own work:
+docker run –v your_source_code_path:/src –rm owasp/glue –t OWASPDependencyCheck –d /src
+
+OWASP supports Java and .NET, but there is experimental support Ruby, Node.js, Python, and in addition to limited support for C/C++.

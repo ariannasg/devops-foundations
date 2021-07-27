@@ -16,7 +16,7 @@ https://www.linkedin.com/learning/devops-foundations/development-and-operations-
 
 This course covers the DevOps fundamentals.
 
-The code for this course lives on the [fundamentals](./fundamentals) folder.
+The resources for this course are on the [fundamentals](./fundamentals) folder.
 
 ### Objectives
 What is DevOps?
@@ -33,7 +33,7 @@ https://www.linkedin.com/learning/devops-foundations-continuous-delivery-continu
 
 This course covers the basics about continuous integration and continuous delivery (CI/CD, and what it takes to construct a build pipeline.
 
-The code for this course lives on the [ci_cd](./ci_cd) folder.
+The resources for this course are on the [ci_cd](./ci_cd) folder.
 
 ### Objectives
 * Benefits of continuous delivery
@@ -45,6 +45,14 @@ The code for this course lives on the [ci_cd](./ci_cd) folder.
 * UI testing in action with Robot
 * Security testing in action with gauntlt
 * CI/CD best practices
+
+## DevOps Foundations: DevSecOps
+
+https://www.linkedin.com/learning/devops-foundations-devsecops/
+
+This course introduces the concept of DevSecOps and explains how an organization can build out a DevSecOps program that helps teams integrate security into the application development pipeline.
+
+The resources for this course are on the [secops](./secops) folder.
 
 ## Local setup
 Follow the instructions inside each course folder.
